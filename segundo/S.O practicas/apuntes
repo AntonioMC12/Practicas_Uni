@@ -1,0 +1,19 @@
+Necesitamos unos pasos indispensables para ejecutar un programa
+
+  1) Generamos una clave                (ftok)
+  2) Reservamos memoria                 (shmget) -> genera (shmid)
+  3) Direcciono puntero hacia memoria   (shmat)
+  4) Operamos sobre memoria compartida
+  5) libero memoria                     (shmdt)
+  6) elimino memoria                    (shmctl)
+
+--------------------------------------------------------------------------------
+
+Permisos
+ 700 (persimo de ejecucion escritura y lectura)
+ 7 -> 111 en binario (rwx)(read write execute)
+      rwx (1 -> le da permiso)
+
+ 666 -> son tres grupos (usuario, grupo, otros) 6 -> usuario 6 -> grupo...
+
+ -------------------------------------------------------------------------------

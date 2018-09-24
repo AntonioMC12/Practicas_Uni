@@ -1,0 +1,4 @@
+gcc *c -lm -0"nombre de la salida del archivo"
+
+
+

@@ -1,0 +1,4 @@
+creaBinario.c -> codigo fuente para crear un fichero binario de alumnos a partir de un fichero de texto
+visualiza.c -> codigo fuente para visualizar un fichero binario
+datos.txt -> fichero de texto con datos para crear el fichero binario
+makefile -> makefile para crear los ejecutables

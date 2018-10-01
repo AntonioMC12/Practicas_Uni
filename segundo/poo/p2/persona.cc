@@ -6,7 +6,7 @@
 
 #include <string>
 #include <cstdlib>
-#include <persona.h>
+#include "persona.h"
 
 Persona::Persona(){
   //the body of the class
@@ -98,12 +98,6 @@ bool Persona::mayor(){
     return true;
   }
   return false;
-}
-
-
-
-
-
 }
 
 

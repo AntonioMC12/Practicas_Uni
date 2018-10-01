@@ -19,13 +19,13 @@ class Persona{
 
   public:
 
-    void setDni(strin s);
-    void setNombre(string s);
-    void setApellidos(string s);
-    void setDireccion(string s);
-    void setLocalidad(string s);
-    void setProvincia(string s);
-    void setPais(string s);
+    void setDni(std::string s);
+    void setNombre(std::string s);
+    void setApellidos(std::string s);
+    void setDireccion(std::string s);
+    void setLocalidad(std::string s);
+    void setProvincia(std::string s);
+    void setPais(std::string s);
     void setEdad(int n);
     std::string getDni();
     std::string getNombre();

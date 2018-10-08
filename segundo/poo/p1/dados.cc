@@ -14,7 +14,7 @@ Dados::Dados(){
 
 }
 
-int Dados::getDado1(){
+inline int Dados::getDado1(){
   //return the value of dice1.
 
   return d1_;
@@ -63,6 +63,6 @@ int Dados::getSuma(){
 
 int Dados::getDiferencia(){
   //return the diference of botch dice.
-  
+
   return(d1_ - d2_ );
 }

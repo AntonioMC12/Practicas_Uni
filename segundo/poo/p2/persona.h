@@ -19,6 +19,8 @@ class Persona{
 
   public:
 
+    Persona(std::string dni, std::string nombre = "", std::string apellidos = "", int edad = 0,
+     std::string direccion = "", std::string localidad = "", std::string provincia = "", std::string pais = "");
     void setDni(std::string s);
     void setNombre(std::string s);
     void setApellidos(std::string s);
@@ -35,5 +37,6 @@ class Persona{
     std::string getProvincia();
     std::string getPais();
     int getEdad();
-
-}
+    std::string getApellidosyNombre(std::string nombre,std::string apellidos);
+    bool mayor();
+};

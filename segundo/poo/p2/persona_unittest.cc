@@ -14,7 +14,7 @@
 
 TEST(Persona, ConstructorParametrosDefecto) {
   Persona p("33XX");
-  
+
   EXPECT_EQ("33XX", p.getDNI());
   EXPECT_EQ("", p.getNombre());
   EXPECT_EQ("", p.getApellidos());
@@ -25,10 +25,10 @@ TEST(Persona, ConstructorParametrosDefecto) {
   EXPECT_EQ(0, p.getEdad());
   EXPECT_EQ(", ", p.getApellidosyNombre());
 }
- 
+
 TEST(Persona, ConstructorParametros) {
   Persona p("44XX", "Carlos", "Gutierrez", 30, "C/ Mesa 1", "Aguilar", "Sevilla", "España");
-  
+
   EXPECT_EQ("44XX", p.getDNI());
   EXPECT_EQ("Carlos", p.getNombre());
   EXPECT_EQ("Gutierrez", p.getApellidos());
@@ -52,7 +52,7 @@ TEST(Persona, ConstructorCopiaDefecto) {
   EXPECT_EQ("Sevilla", q.getProvincia());
   EXPECT_EQ("España", q.getPais());
   EXPECT_EQ("Gutierrez, Carlos", q.getApellidosyNombre());
-  
+
   EXPECT_EQ("44XX", r.getDNI());
   EXPECT_EQ("Carlos", r.getNombre());
   EXPECT_EQ("Gutierrez", r.getApellidos());
@@ -76,12 +76,12 @@ TEST(Persona, OperadorIgualDefecto) {
   EXPECT_EQ("España", q.getPais());
   EXPECT_EQ("Gutierrez, Carlos", q.getApellidosyNombre());
 }
- 
+
  TEST(Persona, mayor) {
   Persona p("44XX", "Carlos", "Gutierrez", 30, "C/ Mesa 1", "Aguilar", "Sevilla", "España");
-  
-  EXPECT_EQ(true, p.getEdad());
+
+  EXPECT_EQ(true, p.mayor());
   p.setEdad(5);
-  EXPECT_EQ(false, p.getEdad());
-  
+  EXPECT_EQ(false, p.mayor());
+
 }

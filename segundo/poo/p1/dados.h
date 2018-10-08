@@ -17,5 +17,5 @@ class Dados{
     bool setDado1(int num);     //set a value in the dice 1
     bool setDado2(int num);     //set a value in the dice 2
     int getSuma();              //return the add of the dice 1 and 2
-    int getDiferencia();        //return the diference of both dice 
+    int getDiferencia();        //return the diference of both dice
 };

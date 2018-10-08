@@ -14,7 +14,7 @@
 
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file.
-GTEST_DIR = /home/ertonix12/Escritorio/Uni/segundo/poo/googletest
+GTEST_DIR = ../googletest
 
 # Where to find user code.
 # USER_DIR = ../samples
@@ -73,22 +73,21 @@ gtest_main.a : gtest-all.o gtest_main.o
 
 persona.o : persona.cc persona.h
 
-crupier.o: crupier.cc crupier.h persona.cc persona.h
+#crupier.o: crupier.cc crupier.h persona.cc persona.h
 
-jugador.o: jugador.cc jugador.h persona.cc persona.h
+#jugador.o: jugador.cc jugador.h persona.cc persona.h
 
 persona_unittest.o : persona_unittest.cc persona.h persona.cc
 
-crupier_unittest.o : crupier_unittest.cc crupier.cc crupier.h persona.cc persona.h
+#crupier_unittest.o : crupier_unittest.cc crupier.cc crupier.h persona.cc persona.h
 
-jugador_unittest.o : jugador_unittest.cc jugador.cc jugador.h
+#jugador_unittest.o : jugador_unittest.cc jugador.cc jugador.h
 
 persona_unittest : persona.o persona_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
-	
-crupier_unittest : crupier.o persona.o crupier_unittest.o gtest_main.a
+
+#crupier_unittest : crupier.o persona.o crupier_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
 
-jugador_unittest : jugador.o persona.o jugador_unittest.o gtest_main.a
+#jugador_unittest : jugador.o persona.o jugador_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
-

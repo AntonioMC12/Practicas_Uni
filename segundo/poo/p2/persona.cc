@@ -6,18 +6,21 @@
 
 #include <string>
 #include <cstdlib>
+#include <iostream>
 #include "persona.h"
 
-Persona::Persona(){
+
+Persona::Persona(std::string dni, std::string nombre, std::string apellidos, int edad, std::string direccion,
+                 std::string localidad , std::string provincia, std::string pais){
   //the body of the class
-  dni_ = getDni(std::string s);
-  nombre_ = "";
-  apellidos_ = "";
-  edad_ = 0;
-  direccion_ = "";
-  localidad_ = "";
-  provincia_ = "";
-  pais_ = "";
+  dni_ = dni;
+  nombre_ = nombre;
+  apellidos_ = apellidos;
+  edad_ = edad;
+  direccion_ = direccion;
+  localidad_ = localidad;
+  provincia_ = provincia;
+  pais_ = pais;
 
 }
 
@@ -49,8 +52,8 @@ inline void Persona::setPais(std::string s){
   pais_ = s;
 }
 
-inline int Persona::setEdad(int n){
-  edad_ = s;
+inline void Persona::setEdad(int n){
+  edad_ = n;
 }
 
 inline std::string Persona::getDni(){
@@ -81,20 +84,20 @@ inline std::string Persona::getPais(){
   return pais_;
 }
 
-inline std::string Persona::getEdad(){
+inline int Persona::getEdad(){
   return edad_;
 }
 
 std::string Persona::getApellidosyNombre(std::string nombre,std::string apellidos){
 
   std::string apellidosynombre;
-  apellidosynombre = apellidos + ','' ' + nombre;
+  apellidosynombre = apellidos + ',';' ' + nombre;
   return apellidosynombre;
 
 }
 
 bool Persona::mayor(){
-  if (edad_ => 18) {
+  if (edad_ >= 18) {
     return true;
   }
   return false;

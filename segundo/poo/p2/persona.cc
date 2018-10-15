@@ -1,8 +1,6 @@
 //persona.cc
 //the code for the funtion of Persona
 
-#ifndef FILE_INCLUDED
-#define FILE_INCLUDED
 
 #include <string>
 #include <cstdlib>
@@ -88,10 +86,10 @@ inline int Persona::getEdad(){
   return edad_;
 }
 
-std::string Persona::getApellidosyNombre(std::string nombre,std::string apellidos){
+std::string Persona::getApellidosyNombre(){
 
   std::string apellidosynombre;
-  apellidosynombre = apellidos + ',';' ' + nombre;
+  apellidosynombre = apellidos_ + ", " + nombre_;
   return apellidosynombre;
 
 }
@@ -102,9 +100,3 @@ bool Persona::mayor(){
   }
   return false;
 }
-
-
-
-
-
-#endif

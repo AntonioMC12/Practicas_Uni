@@ -2,7 +2,7 @@
 //this file is the declaration of the class Persona.
 //we set the private and public data.
 
-#include <cstring>
+#include <string>
 
 
 class Persona{
@@ -37,6 +37,6 @@ class Persona{
     std::string getProvincia();
     std::string getPais();
     int getEdad();
-    std::string getApellidosyNombre(std::string nombre,std::string apellidos);
+    std::string getApellidosyNombre();
     bool mayor();
 };

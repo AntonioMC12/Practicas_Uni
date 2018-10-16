@@ -8,10 +8,10 @@
 #include "persona.h"
 
 
-Persona::Persona(std::string dni, std::string nombre, std::string apellidos, int edad, std::string direccion,
+Persona::Persona(std::string DNI, std::string nombre, std::string apellidos, int edad, std::string direccion,
                  std::string localidad , std::string provincia, std::string pais){
   //the body of the class
-  dni_ = dni;
+  DNI_ = DNI;
   nombre_ = nombre;
   apellidos_ = apellidos;
   edad_ = edad;
@@ -22,67 +22,71 @@ Persona::Persona(std::string dni, std::string nombre, std::string apellidos, int
 
 }
 
-inline void Persona::setDni(std::string s){
-  dni_ = s;
+ void Persona::setDNI(std::string s){
+  DNI_ = s;
 }
 
-inline void Persona::setNombre(std::string s){
+ void Persona::setNombre(std::string s){
   nombre_ = s;
 }
 
-inline void Persona::setApellidos(std::string s){
+ void Persona::setApellidos(std::string s){
   apellidos_ = s;
 }
 
-inline void Persona::setDireccion(std::string s){
+ void Persona::setDireccion(std::string s){
   direccion_ = s;
 }
 
-inline void Persona::setLocalidad(std::string s){
+ void Persona::setLocalidad(std::string s){
   localidad_ = s;
 }
 
-inline void Persona::setProvincia(std::string s){
+ void Persona::setProvincia(std::string s){
   provincia_ = s;
 }
 
-inline void Persona::setPais(std::string s){
+ void Persona::setPais(std::string s){
   pais_ = s;
 }
 
-inline void Persona::setEdad(int n){
-  edad_ = n;
+ bool Persona::setEdad(int n){
+  if (n > -1) {
+    edad_ = n ;
+    return true;
+  }
+  return false;
 }
 
-inline std::string Persona::getDni(){
-  return dni_;
+ std::string Persona::getDNI(){
+  return DNI_;
 }
 
-inline std::string Persona::getNombre(){
+ std::string Persona::getNombre(){
   return nombre_;
 }
 
-inline std::string Persona::getApellidos(){
+ std::string Persona::getApellidos(){
   return apellidos_;
 }
 
-inline std::string Persona::getDireccion(){
+ std::string Persona::getDireccion(){
   return direccion_;
 }
 
-inline std::string Persona::getLocalidad(){
+ std::string Persona::getLocalidad(){
   return localidad_;
 }
 
-inline std::string Persona::getProvincia(){
+ std::string Persona::getProvincia(){
   return provincia_;
 }
 
-inline std::string Persona::getPais(){
+ std::string Persona::getPais(){
   return pais_;
 }
 
-inline int Persona::getEdad(){
+ int Persona::getEdad(){
   return edad_;
 }
 

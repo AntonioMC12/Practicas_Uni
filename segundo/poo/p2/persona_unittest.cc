@@ -15,7 +15,7 @@
 TEST(Persona, ConstructorParametrosDefecto) {
   Persona p("33XX");
 
-  EXPECT_EQ("33XX", p.getDni());
+  EXPECT_EQ("33XX", p.getDNI());
   EXPECT_EQ("", p.getNombre());
   EXPECT_EQ("", p.getApellidos());
   EXPECT_EQ("", p.getDireccion());
@@ -29,7 +29,7 @@ TEST(Persona, ConstructorParametrosDefecto) {
 TEST(Persona, ConstructorParametros) {
   Persona p("44XX", "Carlos", "Gutierrez", 30, "C/ Mesa 1", "Aguilar", "Sevilla", "España");
 
-  EXPECT_EQ("44XX", p.getDni());
+  EXPECT_EQ("44XX", p.getDNI());
   EXPECT_EQ("Carlos", p.getNombre());
   EXPECT_EQ("Gutierrez", p.getApellidos());
   EXPECT_EQ(30, p.getEdad());
@@ -44,7 +44,7 @@ TEST(Persona, ConstructorCopiaDefecto) {
   Persona p("44XX", "Carlos", "Gutierrez", 30, "C/ Mesa 1", "Aguilar", "Sevilla", "España");
   Persona q(p);
   Persona r=q;
-  EXPECT_EQ("44XX", q.getDni());
+  EXPECT_EQ("44XX", q.getDNI());
   EXPECT_EQ("Carlos", q.getNombre());
   EXPECT_EQ("Gutierrez", q.getApellidos());
   EXPECT_EQ("C/ Mesa 1", q.getDireccion());
@@ -53,7 +53,7 @@ TEST(Persona, ConstructorCopiaDefecto) {
   EXPECT_EQ("España", q.getPais());
   EXPECT_EQ("Gutierrez, Carlos", q.getApellidosyNombre());
 
-  EXPECT_EQ("44XX", r.getDni());
+  EXPECT_EQ("44XX", r.getDNI());
   EXPECT_EQ("Carlos", r.getNombre());
   EXPECT_EQ("Gutierrez", r.getApellidos());
   EXPECT_EQ("C/ Mesa 1", r.getDireccion());
@@ -67,7 +67,7 @@ TEST(Persona, OperadorIgualDefecto) {
   Persona p("44XX", "Carlos", "Gutierrez", 30, "C/ Mesa 1", "Aguilar", "Sevilla", "España");
   Persona q("66FF");
   q=p;
-  EXPECT_EQ("44XX", q.getDni());
+  EXPECT_EQ("44XX", q.getDNI());
   EXPECT_EQ("Carlos", q.getNombre());
   EXPECT_EQ("Gutierrez", q.getApellidos());
   EXPECT_EQ("C/ Mesa 1", q.getDireccion());
@@ -81,7 +81,8 @@ TEST(Persona, OperadorIgualDefecto) {
   Persona p("44XX", "Carlos", "Gutierrez", 30, "C/ Mesa 1", "Aguilar", "Sevilla", "España");
 
   EXPECT_EQ(true, p.mayor());
-  p.setEdad(5);
+  EXPECT_FALSE(p.setEdad(-5));
+  EXPECT_TRUE(p.setEdad(5));
   EXPECT_EQ(false, p.mayor());
 
 }

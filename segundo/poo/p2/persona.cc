@@ -3,13 +3,11 @@
 
 
 #include <string>
-#include <cstdlib>
-#include <iostream>
 #include "persona.h"
 
 
-Persona::Persona(std::string DNI, std::string nombre, std::string apellidos, int edad, std::string direccion,
-                 std::string localidad , std::string provincia, std::string pais){
+Persona::Persona(const std::string DNI, const std::string nombre, const std::string apellidos, const int edad, const std::string direccion, const
+                 std::string localidad , const std::string provincia, const std::string pais){
   //the body of the class
   DNI_ = DNI;
   nombre_ = nombre;

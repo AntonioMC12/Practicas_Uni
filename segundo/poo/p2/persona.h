@@ -22,8 +22,8 @@ class Persona{
 
   public:
 
-    Persona(std::string DNI, std::string nombre = "", std::string apellidos = "", int edad = 0,
-     std::string direccion = "", std::string localidad = "", std::string provincia = "", std::string pais = "");
+    Persona(const std::string DNI, const std::string nombre = "", const std::string apellidos = "", const int edad = 0, const
+     std::string direccion = "", const std::string localidad = "", const std::string provincia = "", const std::string pais = "");
     void setDNI(std::string s);
     void setNombre(std::string s);
     void setApellidos(std::string s);

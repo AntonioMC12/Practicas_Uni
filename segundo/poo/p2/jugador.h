@@ -18,7 +18,16 @@ class Apuesta{
 class Jugador : public Persona{
 
   public:
-    Jugador()
+    Jugador(const string DNI, const string codigo, const string nombre = "", const string apellidos = "",
+            const int edad = 0, const string direccion = "", const string localidad = "", const string provincia = "",
+            const string pais = "");
+
+  inline  int getDinero(){ return dinero_; }
+  inline  string getCodigo(){ return codigo_; }
+  inline  std::list<Apuesta> getApuesta(){ return apuesta_; }
+  inline  void setDinero();
+  inline  void setCodigo();
+  inline  void setApuesta();
 
 
 

@@ -4,9 +4,11 @@
 #include <stdlib.h>
 
 double counter = 0;
+bool Eligiendo[] = ;
+int Numero = ;
 
-#define ITER	1000
-#define NHILOS	3
+#define ITER	100
+#define NHILOS	4
 
 int main()
 {
@@ -40,14 +42,30 @@ void *adder(void *p)
     double l, *to_return;
     extern double counter;
     int *id, i;
+    extern bool Eligiendo[];
+    extern int Numero[];
+
+    //inicializamos las variables
+    Eligiendo[] = false;
+    Numero[] = 0;
 
     id = (int *) p;
+    int j;
 
-    for (i = 0; i < ITER; i++) {
-	l = counter;
-	fprintf(stdout, "Hilo %d: %f\n", *id, counter);
-	l++;
-	counter = l;
+    while(true){
+      Eligiendo[id*] = true;
+      Numero = max()+1;
+      Eligiendo[id*] = false;
+      for ( j = 0; j < N; j++) {
+        Eligiendo[j];
+        
+      }
+
+      Numero[id*] = 0;
+    }
+
+
+
     }
 
     to_return = malloc(sizeof(double));

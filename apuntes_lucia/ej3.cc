@@ -28,5 +28,5 @@ int suma = 0;
   }
 
   std::cout << "La suma es... " << suma <<'\n';
-  
+
 }

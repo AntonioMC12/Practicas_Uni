@@ -3,12 +3,15 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-double counter = 0;
-bool Eligiendo[] = ;
-int Numero = ;
+
 
 #define ITER	100
 #define NHILOS	4
+
+double counter = 0;
+int Eligiendo[NHILOS];
+int Numero[NHILOS];
+
 
 int main()
 {
@@ -18,11 +21,17 @@ int main()
     void *adder(void *);
     double *r_value;
 
+    //Tenemos que inicializar los vectores para trabajar con ellos.
+    for (int i = 0 ; i < NHILOS ; i++){
+      Eligiendo[i] = 0;
+      Numero[i] = 0;
+    }
+
     // Create NHILOS threads
     for (i = 0; i < NHILOS; i++) {
-	v[i] = i;
-	if ((status = pthread_create(&hilos[i], NULL, adder, (void *) &v[i])))
-	    exit(status);
+	     v[i] = i;
+	     if ((status = pthread_create(&hilos[i], NULL, adder, (void *) &v[i])))
+	       exit(status);
     }
 
     // Wait threads
@@ -32,40 +41,49 @@ int main()
     }
 
     // Final result
-    fprintf(stdout, "%f\n", counter);
+    fprintf(stdout, "Resultado Final = %f\n", counter);
 
     return 0;
 }
 
+  int mayor(int *number) {consumer
+    int nmayor = 0;
+    for(int i = 0; i < NHILOS; i++) {
+      if (Numero[i] > nmayor) {
+        nmayor = Numero[i];
+      }
+    }
+    return nmayor;
+  }
+
 void *adder(void *p)
 {
-    double l, *to_return;
+
+    double contador_hilos, *to_return;
+    int *id = (int *) p;
     extern double counter;
-    int *id, i;
-    extern bool Eligiendo[];
+    extern int Eligiendo[];
     extern int Numero[];
 
-    //inicializamos las variables
-    Eligiendo[] = false;
-    Numero[] = 0;
 
-    id = (int *) p;
-    int j;
+    //Empezamos el "algoritmo"
+    for (int i = 0 ; i < ITER ; i++){
 
-    while(true){
-      Eligiendo[id*] = true;
-      Numero = max()+1;
-      Eligiendo[id*] = false;
-      for ( j = 0; j < N; j++) {
-        Eligiendo[j];
-        
+    Eligiendo[*id] = 1;
+
+    Numero[*id] = mayor(Numero) + 1;
+
+    Eligiendo[*id] = 0;
+
+      for(int j = 0; j < NHILOS; j++) {
+        while(Eligiendo[j]);
+        while((Numero[j] != 0) && ((Numero[j] < Numero[*id]) || ((Numero[j] == Numero[*id]) && ((j < *id)))));
       }
-
-      Numero[id*] = 0;
-    }
-
-
-
+      contador_hilos = counter;
+      fprintf(stdout, "Thread %d: %f\n", *id, counter);
+      contador_hilos++;
+      counter = contador_hilos;
+      Numero[*id] = 0;
     }
 
     to_return = malloc(sizeof(double));

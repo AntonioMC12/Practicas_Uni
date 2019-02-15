@@ -35,7 +35,7 @@ cin>>userNUM;
         cin>>userNUM;
       }
   }
-  if (userNUM = randNUM) {
+  //cuando sale del while, ya es el numero correcto
     cout<<"El numero introducido es el correcto"<<endl;
-  }
+
 }

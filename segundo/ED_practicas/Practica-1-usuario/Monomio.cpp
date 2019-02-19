@@ -15,7 +15,14 @@
 
 ed::Monomio & ed::Monomio::operator=(ed::Monomio const &m)
 {
-	set
+
+	//podemos usar los modificadores para asignar los diferentes atributos.
+
+	setCoeficiente(m.getCoeficiente());
+	setGrado(m.getGrado());
+
+	assert(getCoeficiente() == m.getCoeficiente());
+	assert(getGrado() == m.getGrado());
 
 
 	// Se devuelve el objeto actual
@@ -25,7 +32,13 @@ ed::Monomio & ed::Monomio::operator=(ed::Monomio const &m)
 
 ed::Monomio & ed::Monomio::operator=(double const &x)
 {
-	// COMPLETAR
+	//podemo usar los modificadores para asignar los diferentes atributos.
+
+	setCoeficiente(x);
+	setGrado(0);
+
+	assert(getCoeficiente() == x);
+	assert(getGrado() == 0);
 
 	// Se devuelve el objeto actual
 	return *this;
@@ -41,17 +54,90 @@ ed::Monomio & ed::Monomio::operator=(double const &x)
 
 ed::Monomio & ed::Monomio::operator+=(ed::Monomio const &m)
 {
-	// COMPLETAR
+	//precondicion
+	if (m.getGrado() == grado_) {
+		
+		this->setCoeficiente(this->getCoeficiente() + m.getCoeficiente());
 
+		/*comprobamos que El coeficiente del monomio actual se ha incrementado con el coeficiente
+		  del monomio “m”.*/
+		assert(this->getCoeficiente() == this->getCoeficiente() - m.getCoeficiente());
+
+		assert(m.getCoeficiente() == coeficiente_);
+
+		return *this;
+		
+	}
+	
 
 	// Se devuelve el objeto actual
 	return *this;
 }
 
+ed::Monomio & ed::Monomio::operator-=(ed::Monomio const &m){
+
+	//precondicion
+	if(m.getGrado() == this->getGrado()){
+
+		this->setCoeficiente(this->getCoeficiente() - m.getCoeficiente());
+
+		//assertos
+
+		return *this;
+	}
+
+	return *this;
+}
+
+ed::Monomio & ed::Monomio::operator*=(ed::Monomio const &m){
+
+	//multiplicamos los coeficientes
+	this->setCoeficiente(this->getCoeficiente() * m.getCoeficiente());
+	//se suman los grados
+	this->setGrado(this->getGrado() + m.getGrado());
 
 
-// COMPLETAR EL RESTO DE OPERADORES
+	//assertos
+	
+	return *this;
+}
 
+ed::Monomio & ed::Monomio::operator*=(double const &real){
+
+	this->setCoeficiente(this->getCoeficiente() * real);
+
+	//assertos
+
+
+return *this;
+}
+
+ed::Monomio & ed::Monomio::operator/=(ed::Monomio const &m){
+
+	if (m.getGrado() <= this->getGrado() && m.getCoeficiente() > COTA_ERROR) {
+		
+		this->setCoeficiente(this->getCoeficiente() / m.getCoeficiente());
+		this->setGrado(this->getGrado() - m.getGrado());
+
+		return *this;
+
+	}
+	
+return *this;
+
+}
+
+ed::Monomio & ed::Monomio::operator/=(double const &real){
+
+	if(real > COTA_ERROR){
+		this->setCoeficiente(this->getCoeficiente / real);
+
+		//assertos
+		return *this;
+	}
+
+return *this;
+}
 
 
 ///////////////////////////////////////////////////////////////////////

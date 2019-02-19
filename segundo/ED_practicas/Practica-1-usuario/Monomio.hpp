@@ -116,30 +116,30 @@ class Monomio
 		// COMPLETAR LOS COMENTARIOS DE DOXYGEN
 		Monomio & operator+=(Monomio const &m);
 
+		Monomio & operator-=(Monomio const &m);
 
-		// COMPLETAR EL RESTO DE OPERADORES
+		Monomio & operator*=(Monomio const &m);
 
+		Monomio & operator*=(double const &real);
+
+		Monomio & operator/=(Monomio const &m);
+
+		Monomio & operator/=(double const &real);
 
 	/////////////////////////////////////////////////////////////////////////////////////
 
 	//! \name Funciones lectura y escritura de la clase Monomio
 
-	void leerMonomio(){
+	void leerMonomio();
 
-	}
-
-	void escribirMonomio(){
-
-		std::cout<<"Escribe por pantalla los atributos del monomio con el formato ( coeficiente X ^ grado )"<<std::endl;
-		std::cin>>
-	}
+	void escribirMonomio();
 
 
 	///////////////////////////////////////////////////////////////////////
 
 	//! \name Funciones auxiliares de la clase Monomio
 
-	// COMPLETAR
+	double calcularValor(double const valor);
 
 
 
@@ -148,4 +148,5 @@ class Monomio
 }  //  Fin de namespace ed.
 
 // _MONOMIO_HPP_
+
 #endif

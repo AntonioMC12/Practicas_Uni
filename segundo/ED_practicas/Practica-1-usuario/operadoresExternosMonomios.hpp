@@ -26,16 +26,18 @@ namespace ed
 	// COMPLETAR LOS COMENTARIOS DE DOXYGEN
 	bool operator==(ed::Monomio const & m1, ed::Monomio const & m2);
 
+	bool operator==(ed::Monomio const & m1, double const valor);
 
-	// COMPLETAR LOS OTROS OPERADORES DE IGUALDAD
-
+	bool operator==(double const valor, ed::Monomio const & m1);
 
 	//! \name Operadores de desigualdad 
 
 	// COMPLETAR LOS COMENTARIOS DE DOXYGEN
 	bool operator!=(ed::Monomio const & m1, ed::Monomio const & m2);
 
-	// COMPLETAR LOS OTROS OPERADORES DE DESIGUALDAD
+	bool operator!=(double const valor, ed::Monomio const & m1);
+
+	bool operator!=(ed::Monomio const & m1, double const valor);
 
 	///////////////////////////////////////////////////
 
@@ -44,6 +46,8 @@ namespace ed
 	// COMPLETAR LOS COMENTARIOS DE DOXYGEN
 
 	ed::Monomio & operator+(ed::Monomio const & m);
+
+	ed::Monomio & operator-(ed::Monomio const & m);
 
 	// COMPLETAR EL OTRO OPERADOR UNARIO PREFIJO: resta
 
@@ -59,21 +63,27 @@ namespace ed
 	//////////////////////////////////////////////////////////
 	//! \name Operador binario de la resta 
 
-	// COMPLETAR
+	ed::Monomio & operator- (ed::Monomio const &m1,  ed::Monomio const &m2);
 
 
 	///////////////////////////////////////////////////////////////////////////
 	//! \name Operadores binarios de la multiplicación 
 
-	// COMPLETAR
+	ed::Monomio & operator* (ed::Monomio const &m1,  ed::Monomio const &m2);
+
+	ed::Monomio & operator* (double const valor, ed::Monomio const &m);
+
+	ed::Monomio & operator* (ed::Monomio const &m, double const valor);		
 
 	///////////////////////////////////////////////////////////////////////////
 
 	//! \name Operadores binarios de la división 
 
-	// COMPLETAR
+	ed::Monomio & operator/ (ed::Monomio const &m1, ed::Monomio const &m2);
 
+	ed::Monomio & operator/ (ed::Monomio const &m, double const valor);
 
+	ed::Monomio & operator/ (double const valor, ed::Monomio const &m);
 	/////////////////////////////////////////////////////////////////////////////
 
 	//! \name Sobrecarga de los operadores de entrada y salida 

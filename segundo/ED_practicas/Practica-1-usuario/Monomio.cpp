@@ -144,12 +144,40 @@ return *this;
 
 // Funciones lectura y escritura de la clase Monomio
 
-// COMPLETAR
+void ed::Monomio::leerMonomio(){
+
+	int aux1 = 0;
+	double aux2;
+
+	std::cout<<"Introduce por Teclado un valor para el coeficiente"<<std::endl;
+	std::cin>>aux2;
+	this->setCoeficiente(aux2);
+
+	while(aux1 < 0){
+		std::cout<<"Introduzca un Grado valido"<<std::endl;
+		std::cin>>aux1;
+	}
+	this->setGrado(aux1);
+
+	assert(this->getGrado() >= 0);
+
+
+}
+
+
 
 
 ///////////////////////////////////////////////////////////////////////
 
 // Funciones auxiliares de la clase Monomio
+
+double ed::Monomio::calcularValor(double valor){
+
+	//calculamos el resultado del monomio "coeficiente * valor ^ grado"
+
+	return pow((this->getCoeficiente()* valor), this->getGrado());
+
+}
 
 // COMPLETAR
 

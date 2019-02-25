@@ -139,7 +139,7 @@ class Monomio
 
 	//! \name Funciones auxiliares de la clase Monomio
 
-	double calcularValor(double const valor);
+	double calcularValor(double valor);
 
 
 

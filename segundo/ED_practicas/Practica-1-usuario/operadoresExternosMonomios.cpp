@@ -19,26 +19,58 @@ namespace ed
 
 	bool operator==(ed::Monomio const & m1, ed::Monomio const & m2)
 	{
-		// COMPLETAR Y MODIFICAR
-
-		// MODIFICAR: SE DEVUELVE UN VALOR ARBITRARIO PARA NO GENERAR AVISOS AL COMPILAR
-		return true;
+		
+		if((abs(m1.getCoeficiente() - m2.getCoeficiente() )) && (m1.getGrado() == m2.getGrado())){
+			return true;
+		}
+		else { return false; }
 	}
 
-	// COMPLETAR LOS OTROS OPERADORES DE IGUALDAD
+	bool operator==(ed::Monomio const & m1, double const valor){
+
+		if(abs(m1.getCoeficiente() - valor) && (m1.getGrado() == 0)){
+			return true;
+		}
+		else{ return false; }
+	}
+
+	bool operator==(double const valor, ed::Monomio const & m1){
+				if(abs(m1.getCoeficiente() - valor) && (m1.getGrado() == 0)){
+			return true;
+		}
+		else{ return false; }
+	}
+
 
 
 
 	// Operadores de desigualdad
 
 	// COMPLETAR
-	bool operator!=(ed::Monomio const & m1, ed::Monomio const & m2)
-	{
-		// COMPLETAR Y MODIFICAR
+	bool operator!=(ed::Monomio const & m1, ed::Monomio const & m2){
 
-		// MODIFICAR: SE DEVUELVE UN VALOR ARBITRARIO PARA NO GENERAR AVISOS AL COMPILAR
-		return true;
+		if (abs((m1.getCoeficiente() - m2.getCoeficiente()) <= COTA_ERROR) || m1.getGrado() != m2.getGrado()) {
+			return true;
+		}
+		else{ return false; }
 	}
+
+	bool operator!=(double const valor, ed::Monomio const & m1){
+
+		if((m1.getGrado() != 0) || (valor != m1.getCoeficiente())){
+			return true;
+		}
+		else{ return false; }
+	}
+
+	bool operator==(double const valor, ed::Monomio const & m1){
+		
+		if((m1.getGrado() != 0) || (valor != m1.getCoeficiente())){
+			return true;
+		}
+		else{ return false; }		
+	}
+
 
 	// COMPLETAR LOS OTROS OPERADORES DE DESIGUALDAD
 
@@ -59,6 +91,19 @@ namespace ed
 		return *nuevo;
 	}
 
+	ed::Monomio & operator- (ed::Monomio const &m){
+
+		// Se crea un nuevo objeto
+		ed::Monomio *nuevo = new ed::Monomio();
+
+		*nuevo = m;
+
+		nuevo->setCoeficiente(-(nuevo->getCoeficiente()));
+
+		// Se devuelve el resultado
+		return *nuevo;
+	}	
+
 	// COMPLETAR EL OTRO OPERADOR UNARIO PREFIJO: resta
 
 
@@ -66,11 +111,13 @@ namespace ed
 	// Operadores aritméticos binarios
 
 	// Suma
-	ed::Monomio & operator+ (ed::Monomio const &m1, ed::Monomio const &m2)
-	{
-		// COMPLETAR Y MODIFICAR
+	ed::Monomio & operator+ (ed::Monomio const &m1, ed::Monomio const &m2){
+
 		// Se crea un nuevo objeto
 		ed::Monomio *nuevo = new ed::Monomio();
+
+			nuevo->setCoeficiente(m1.getCoeficiente() + m2.getCoeficiente());
+			nuevo->setGrado(m1.getGrado());
 
 	
 		// Se devuelve el resultado
@@ -78,23 +125,92 @@ namespace ed
 	}
 
 
+
 	////////////
 	// Resta
 
-	// COMPLETAR
+	ed::Monomio & operator- (ed::Monomio const &m1,  ed::Monomio const &m2){
+
+		// Se crea un nuevo objeto
+		ed::Monomio *nuevo = new ed::Monomio();
+
+			nuevo->setCoeficiente(m1.getCoeficiente() - m2.getCoeficiente());
+			nuevo->setGrado(m1.getGrado());
+
+		// Se devuelve el resultado
+		return *nuevo;
+	}
 
 
 	//////////////////
 	// Multiplicación
 
-	// COMPLETAR
+	ed::Monomio & operator* (ed::Monomio const &m1,  ed::Monomio const &m2){
+		
+		ed::Monomio *nuevo = new ed::Monomio();
+
+			nuevo->setCoeficiente((m1.getCoeficiente())*(m2.getCoeficiente()));
+			nuevo->setGrado(m1.getGrado() + m2.getGrado());
+	
+		return *nuevo;
+	}
+
+	ed::Monomio & operator* (ed::Monomio const &m, double const valor){
+
+		ed::Monomio *nuevo = new ed::Monomio();
+
+			nuevo->setCoeficiente(m.getCoeficiente()*valor);
+			nuevo->setGrado(m.getGrado());
+
+		return *nuevo;
+	}
+
+	ed::Monomio & operator* (double const valor, ed::Monomio const &m){
+
+		ed::Monomio *nuevo = new ed::Monomio();
+
+			nuevo->setCoeficiente(m.getCoeficiente()*valor);
+			nuevo->setGrado(m.getGrado());
+
+		return *nuevo;
+	}
+
 
 	////////////
 	// División
 
-	// COMPLETAR
+	ed::Monomio & operator/ (ed::Monomio const &m1, ed::Monomio const &m2){
 
+		ed::Monomio *nuevo = new ed::Monomio();
 
+			nuevo->setCoeficiente((m1.getCoeficiente()/m2.getCoeficiente()));
+			nuevo->setGrado(m1.getGrado() - m2.getGrado());
+
+		return *nuevo;
+	}
+
+	ed::Monomio & operator/ (ed::Monomio const &m, double const valor){
+
+		ed::Monomio *nuevo = new ed::Monomio();
+
+			nuevo->setCoeficiente(m.getCoeficiente()/valor);
+			nuevo->setGrado(m.getGrado());
+
+		return *nuevo;
+	}
+	
+	ed::Monomio & operator/ (double const valor, ed::Monomio const &m){
+
+		ed::Monomio *nuevo = new ed::Monomio();
+
+			nuevo->setCoeficiente(m.getCoeficiente()/valor);
+			nuevo->setGrado(m.getGrado());
+
+		return *nuevo;
+	}
+	
+	
+	
 	/////////////////////////////////////////////////////////////////////////////
 
 	//  Sobrecarga del operador de entrada

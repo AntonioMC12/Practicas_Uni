@@ -1,6 +1,7 @@
 /*! 
 	\file Monomio.hpp
 	\brief Definición de la clase Monomio
+	\author Antonio Muñoz Cubero
 */
 
 #ifndef _MONOMIO_HPP_
@@ -21,6 +22,8 @@ namespace ed
 class Monomio
 {
 	//! \name Atributos privados de la clase Monomio
+
+	
 	private:
 
 		double coeficiente_;
@@ -31,6 +34,13 @@ class Monomio
 	public:
 
 	//! \name Constructores de la clase Monomio
+
+	/**
+	 * @brief Construct a new Monomio object
+	 * 
+	 * @param coeficiente 
+	 * @param grado 
+	 */
 
 		Monomio(const double &coeficiente = 0.0 , const int &grado = 0){
 
@@ -68,12 +78,31 @@ class Monomio
 
 	//! \name Observadores: funciones de consulta de la clase Monomio
 
+		/**
+		 * @brief Get the Coeficiente object
+		 * 
+		 * @return double 
+		 */
+
 		double getCoeficiente() const { return coeficiente_; }
+
+		/**
+		 * @brief Get the Grado object
+		 * 
+		 * @return int 
+		 */
+	
 		int getGrado() const { return grado_; }
 
 
 
 	//! \name Funciones de modificación de la clase Monomio
+	
+		/**
+	 	* @brief Set the Coeficiente object
+	 	* 
+	 	* @param coeficiente 
+	 	*/
 
 		void setCoeficiente( double const &coeficiente ){
 
@@ -85,6 +114,12 @@ class Monomio
 			
 			#endif
 		}
+
+		/**
+		 * @brief Set the Grado object
+		 * 
+		 * @param grado 
+		 */
 
 		void setGrado( int const &grado ){
 			 
@@ -102,27 +137,73 @@ class Monomio
 
 	//! \name Operadores de la clase Monomio
 
-	// Operadores de asignación
+		// Operadores de asignación
 
-		// COMPLETAR LOS COMENTARIOS DE DOXYGEN
+		/**
+		 * @brief Operador = de la clase monomio, iguala a un objeto Monomio
+		 * 
+		 * @param m 
+		 * @return Monomio& 
+		 */
 		Monomio & operator=(Monomio const &m);
 
-		// COMPLETAR LOS COMENTARIOS DE DOXYGEN
+		/**
+		 * @brief Operador = de la clase monomio, iguala a un valor real
+		 * 
+		 * @param x 
+		 * @return Monomio& 
+		 */
 		Monomio & operator=(double const &x);
 
 
 	// Operadores aritméticos y asignación
 
-		// COMPLETAR LOS COMENTARIOS DE DOXYGEN
+		/**
+		 * @brief Operador +=
+		 * 
+		 * @param m 
+		 * @return Monomio& 
+		 */
 		Monomio & operator+=(Monomio const &m);
 
+		/**
+		 * @brief Operador -=
+		 * 
+		 * @param m 
+		 * @return Monomio& 
+		 */
 		Monomio & operator-=(Monomio const &m);
 
+		/**
+		 * @brief Operador *=
+		 * 
+		 * @param m 
+		 * @return Monomio& 
+		 */
 		Monomio & operator*=(Monomio const &m);
 
+		/**
+		 * @brief Operador *=
+		 * 
+		 * @param real 
+		 * @return Monomio& 
+		 */
 		Monomio & operator*=(double const &real);
 
+		/**
+		 * @brief Operador /=
+		 * 
+		 * @param m 
+		 * @return Monomio& 
+		 */
 		Monomio & operator/=(Monomio const &m);
+
+		/**
+		 * @brief Operador /=
+		 * 
+		 * @param real 
+		 * @return Monomio& 
+		 */
 
 		Monomio & operator/=(double const &real);
 
@@ -130,8 +211,17 @@ class Monomio
 
 	//! \name Funciones lectura y escritura de la clase Monomio
 
+	/**
+	 * @brief Funcion que nos permita leer un Monomio por pantalla
+	 * 
+	 */
+
 	void leerMonomio();
 
+	/**
+	 * @brief Escribimos le monomio
+	 * 
+	 */
 	void escribirMonomio();
 
 
@@ -139,6 +229,12 @@ class Monomio
 
 	//! \name Funciones auxiliares de la clase Monomio
 
+	/**
+	 * @brief Una funcion auxiliar par calcular el valor
+	 * 
+	 * @param valor 
+	 * @return double 
+	 */
 	double calcularValor(double valor);
 
 

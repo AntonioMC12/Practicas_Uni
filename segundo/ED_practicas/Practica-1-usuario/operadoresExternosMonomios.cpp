@@ -63,7 +63,7 @@ namespace ed
 		else{ return false; }
 	}
 
-	bool operator==(double const valor, ed::Monomio const & m1){
+	bool operator!=(ed::Monomio const & m1, double const valor){
 		
 		if((m1.getGrado() != 0) || (valor != m1.getCoeficiente())){
 			return true;
@@ -214,22 +214,28 @@ namespace ed
 	/////////////////////////////////////////////////////////////////////////////
 
 	//  Sobrecarga del operador de entrada
-	istream &operator>>(istream &stream, ed::Monomio &m) 
-	{
-		// COMPLETAR
+	istream &operator>>(istream &stream, ed::Monomio &m){	
+		int aux_Integer;
+		double aux_Double;
 
+		stream>>aux_Integer>>aux_Double;
+		stream.ignore();
+
+		m.setCoeficiente(aux_Integer);
+		m.setGrado(aux_Double);
    		// Se devuelve el flujo de entrada
 		return stream;
+
 	}
 
 
 	//  Sobrecarga del operador de salida
-	ostream &operator<<(ostream &stream, ed::Monomio const &m) 
-	{
-		// COMPLETAR
+	ostream &operator<<(ostream &stream, ed::Monomio const &m) {
 
-		// Se devuelve el flujo de salida
+		stream<<m.getCoeficiente()<<" "<<m.getGrado();
+
 		return stream;
+
 	}
 
 

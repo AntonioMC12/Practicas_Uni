@@ -130,7 +130,7 @@ return *this;
 ed::Monomio & ed::Monomio::operator/=(double const &real){
 
 	if(real > COTA_ERROR){
-		this->setCoeficiente(this->getCoeficiente / real);
+		this->setCoeficiente(this->getCoeficiente() / real);
 
 		//assertos
 		return *this;
@@ -144,24 +144,43 @@ return *this;
 
 // Funciones lectura y escritura de la clase Monomio
 
-void ed::Monomio::leerMonomio(){
+void ed::Monomio::leerMonomio() {
+	double coeficiente_auxiliar;
+	int grado_auxiliar;
 
-	int aux1 = 0;
-	double aux2;
+	std::cout << "Introduce los valores del monomio:" << std::endl;
+	std::cout << "\tCoeficiente: ";
+	std::cin >> coeficiente_auxiliar;
+	std::cout << "\tGrado (mayor o igual a 0): ";
+	std::cin >> grado_auxiliar;
 
-	std::cout<<"Introduce por Teclado un valor para el coeficiente"<<std::endl;
-	std::cin>>aux2;
-	this->setCoeficiente(aux2);
-
-	while(aux1 < 0){
-		std::cout<<"Introduzca un Grado valido"<<std::endl;
-		std::cin>>aux1;
+	while(grado_auxiliar < 0){
+		std::cout << "Introduzca un grado mayor o igual a 0: ";
+		std::cin >> grado_auxiliar;
 	}
-	this->setGrado(aux1);
 
-	assert(this->getGrado() >= 0);
+	setCoeficiente(coeficiente_auxiliar);
+	setGrado(grado_auxiliar);
+}
 
+void ed::Monomio::escribirMonomio(){
+	int coeficiente = this->getCoeficiente();
+	double grado = this->getGrado();
 
+	if (coeficiente != 1){
+		std::cout<<coeficiente;
+	}
+	else if(coeficiente == -1){
+		std::cout<<"-";
+	}
+
+	if (grado > COTA_ERROR){ 
+		std::cout<<"X";
+		if(std::abs(grado - 1) > COTA_ERROR){  
+			std::cout<<"^"<<grado;
+		}
+	}
+	std::cout<<std::endl;
 }
 
 
@@ -180,4 +199,3 @@ double ed::Monomio::calcularValor(double valor){
 }
 
 // COMPLETAR
-

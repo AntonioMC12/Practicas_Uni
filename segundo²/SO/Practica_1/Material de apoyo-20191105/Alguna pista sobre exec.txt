@@ -1,0 +1,18 @@
+Ejecución de nuevos programas. System call exec
+================================================
+La llamada al sistema exec permite remplazar los segmentos de instrucciones y de datos de usuario por otros nuevos a partir de un archivo ejecutable en disco, con lo que se consigue que un proceso deje de ejecutar instrucciones de un programa y comience a ejecutar instrucciones de un nuevo programa. exec() no crea ningún proceso nuevo.
+
+Como el proceso continua activo su segmento de datos del sistema apenas es perturbado, la mayoría de sus atributos permanecen inalterados. En particular, los descriptores de archivos abiertos permanecen abiertos después de un exec. Esto es importante puesto que algunas funciones de la librería C (como printf) utilizan buffers internos para aumentar el rendimiento de la E/S; si un proceso realiza un exec y no se han volcado (sincronizado) antes los buffers internos, los datos de estos buffers se perderán. Por ello es habitual cerrar los descriptores abiertos antes de realizar una llamada al sistema exec. 
+
+ejemplo:
+
+main()
+{
+    if ( exec("/usr/bin/loquesea",NULL,NULL) == -1 ) 
+       procesa_error_ejecucion();
+}
+
+Si no hay errores en esta llamada, main en tiempo de ejecución se transformará en el proceso "loquesea"
+
+
+

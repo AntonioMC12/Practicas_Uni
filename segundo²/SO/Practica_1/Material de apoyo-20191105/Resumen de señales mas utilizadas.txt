@@ -1,0 +1,9 @@
+SIGHUP Hangup. Esta señal se envía a todos los procesos de un grupo cuando su líder de grupo termina su ejecución. También se envía cuando un terminal se desconecta de un proceso del que es terminal de control. La acción por defecto de esta señal es terminar la ejecución del proceso que la recibe (exit()).
+
+SIGINT  Interrupción. Es enviada cuando en medio de un proceso se pulsa las teclas de interrupción (Ctrl + c). Por defecto se termina la ejecución del proceso que recibe la señal (exit())
+
+SIGKILL  Kill. Esta señal provoca irremediablemente la terminación del proceso. No puede ser ignorada ni tampoco se puede modificar la rutina por defecto. Siempre que se recibe se ejecuta su acción por defecto, que consiste en terminar el proceso (exit()).
+
+SIGALRM Alarm clock.Cada proceso tiene asignados un conjunto de temporizadores. Si se ha activado alguno de ellos y este llega a cero, se envía esta señal al proceso.
+
+SIGTERM  Finalización software. Es la señal utilizada para indicarle a un proceso que debe terminar su ejecución. Esta señal no es tajante como SIGKILL y puede ser ignorada. Lo correcto es que la rutina de tratamiento de esta señal se encargue de tomar las acciones necesarias antes de terminar un proceso (como, por ejemplo, borrar los archivos temporales) y llame a la rutina exit(). Esta señal es enviada a todos los procesos cuando se produce una parada del sistema. Su acción por defecto es terminar el proceso (exit()).
